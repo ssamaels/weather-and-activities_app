@@ -1,6 +1,5 @@
-import React from "react";
-
 const Weather = ({ weather }) => {
+  // HTML code for displaying the weather information from the weather object defined every 5 seconds by the fetch function in App.js
   return (
     <div>
       <h1>{weather.condition}</h1>

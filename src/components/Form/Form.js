@@ -10,6 +10,7 @@ const Form = ({ onAddActivity }) => {
   const [isForGoodWeather, setIsForGoodWeather] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
+  // the checkbox is set to display:none and replaced by two images which then use this function to toggle the checked state of the checkbox and the isForGoodWeather variable
   const handleToggle = () => {
     setIsChecked(!isChecked);
     setIsForGoodWeather(!isForGoodWeather);
@@ -54,6 +55,7 @@ const Form = ({ onAddActivity }) => {
           checked={isForGoodWeather}
           onChange={(e) => setIsForGoodWeather(e.target.checked)}
         />
+        {/* if isForGoodWeather is true the SunFilled .svg is used and the handleToggle function called on click, else the same happens with the regular Sun .svg */}
         {isForGoodWeather ? (
           <SunFilled onClick={handleToggle} />
         ) : (

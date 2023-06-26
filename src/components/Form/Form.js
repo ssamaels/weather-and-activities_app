@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { uid } from "uid";
 
 const Form = ({ onAddActivity }) => {
+  // setting the state variables
   const [name, setName] = useState("");
   const [isForGoodWeather, setIsForGoodWeather] = useState(false);
+
+  // function to handle the submit event
   const handleSubmit = (e) => {
     e.preventDefault();
+    // creating the object which will be filled with the form data
     const newActivity = {
-      id: Math.random().toString(36).substr(2, 9),
+      id: uid(),
       name,
       isForGoodWeather,
     };
     onAddActivity(newActivity);
+    // resetting the state variables
     setName("");
     setIsForGoodWeather(false);
     document.getElementById("activity-name").focus();
   };
+
+  // HTML code for the form
   return (
     <form onSubmit={handleSubmit}>
       <h2>Add Activity</h2>

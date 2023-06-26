@@ -1,10 +1,19 @@
+import "./Form.css";
 import { useState } from "react";
 import { uid } from "uid";
+import { ReactComponent as SunFilled } from "./Sun-filled.svg";
+import { ReactComponent as Sun } from "./Sun.svg";
 
 const Form = ({ onAddActivity }) => {
   // setting the state variables
   const [name, setName] = useState("");
   const [isForGoodWeather, setIsForGoodWeather] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleToggle = () => {
+    setIsChecked(!isChecked);
+    setIsForGoodWeather(!isForGoodWeather);
+  };
 
   // function to handle the submit event
   const handleSubmit = (e) => {
@@ -25,26 +34,35 @@ const Form = ({ onAddActivity }) => {
   // HTML code for the form
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Activity</h2>
+      <h3>Add Activity</h3>
       <div>
-        <label htmlFor="activity-name">Activity Name:</label>
+        <label htmlFor="activity-name">Activity Name: </label>
         <input
           type="text"
           id="activity-name"
+          className="activity-input"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
       <div>
-        <label htmlFor="good-weather-activity">Good Weather Activity:</label>
+        <label htmlFor="good-weather-activity">Good Weather Activity: </label>
         <input
           type="checkbox"
           id="good-weather-activity"
+          className="checkbox"
           checked={isForGoodWeather}
           onChange={(e) => setIsForGoodWeather(e.target.checked)}
         />
+        {isForGoodWeather ? (
+          <SunFilled onClick={handleToggle} />
+        ) : (
+          <Sun onClick={handleToggle} />
+        )}
       </div>
-      <button type="submit">Add</button>
+      <button className="addButton" type="submit">
+        Add
+      </button>
     </form>
   );
 };

@@ -1,0 +1,10 @@
+.weather-container {
+  display: flexbox;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+h1 {
+  margin-left: 20px;
+}

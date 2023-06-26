@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Moon-bold";
+  src: url(/src/components/Fonts/Moon\ Bold.otf);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Moon-light";
+  src: url(/src/components/Fonts/Moon\ Light.otf);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.background-class {
+  background: var(--color-snow);
+  background-attachment: scroll;
+  height: 100vh;
+  width: 375px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   align-items: center;
+  align-self: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: "Moon-light";
 }
-
-.App-link {
-  color: #61dafb;
+.background-class-bad {
+  background: url("./images/ezgif-1-ce0ee9640b.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  height: 100vh;
+  width: 375px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  font-family: "Moon-light";
+  color: var(--color-snow);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.background-class-good {
+  background: url("./images/tumblr_c4205bb1f4230f38c8e79b49055a9c67_f857fd00_640.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  height: 100vh;
+  width: 375px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  font-family: "Moon-light";
+  color: var(--color-void);
+}
+@media (max-width: 375px) {
+  .background-container {
+    max-width: none;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
   }
 }

@@ -1,0 +1,9 @@
+.showButton {
+  background: transparent;
+  color: var(--color-snow);
+  border: 2px solid var(--color-snow);
+  border-radius: 5px;
+  padding-right: 3px;
+  padding-left: 3px;
+  font-family: "Moon-bold";
+}

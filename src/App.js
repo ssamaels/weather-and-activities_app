@@ -25,6 +25,7 @@ function App() {
         // setting the isGoodWeather and weather states
         setIsGoodWeather(data.isGoodWeather);
         setWeather(data);
+        // if the API data shows isGoodWeather is true, then the background class is good, else it's bad (in the App.css accordingly fitting .gifs are used for the background)
         if (data.isGoodWeather) {
           setBackgroundClass("background-class-good");
         } else {

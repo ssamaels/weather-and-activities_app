@@ -5,12 +5,14 @@ import Activities from "./components/Activities/Activities.js";
 import FilterActivities from "./components/FilterActivities/FilterActivities.js";
 import Form from "./components/Form/Form.js";
 import "./App.css";
+import "./colors.css";
 
 function App() {
   // setting up state variables for use in functions below
   const [activities, setActivities] = useLocalStorage("Activity: ", []);
   const [isGoodWeather, setIsGoodWeather] = useState(true);
   const [weather, setWeather] = useState("");
+  const [backgroundClass, setBackgroundClass] = useState("background-class");
 
   // fetch function to get weather data
   useEffect(() => {
@@ -23,6 +25,11 @@ function App() {
         // setting the isGoodWeather and weather states
         setIsGoodWeather(data.isGoodWeather);
         setWeather(data);
+        if (data.isGoodWeather) {
+          setBackgroundClass("background-class-good");
+        } else {
+          setBackgroundClass("background-class-bad");
+        }
       } catch (error) {
         console.log("Error fetching weather data:", error);
       }
@@ -53,7 +60,7 @@ function App() {
 
   // returning the HTML with all props passed
   return (
-    <>
+    <div className={backgroundClass}>
       <Weather weather={weather} />
       <FilterActivities
         isGoodWeather={isGoodWeather}
@@ -64,7 +71,7 @@ function App() {
         onDeleteActivity={handleDeleteActivity}
       />
       <Form onAddActivity={handleAddActivity} />
-    </>
+    </div>
   );
 }
 

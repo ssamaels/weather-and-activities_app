@@ -1,0 +1,37 @@
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-self: center;
+  justify-content: center;
+}
+h2 {
+  font-family: "Moon-bold";
+  font-size: xx-large;
+}
+h3 {
+  align-self: center;
+}
+.addButton {
+  font-family: "Moon-light";
+  background-color: transparent;
+  border: 2px solid var(--color-snow);
+  padding: 2px;
+  border-radius: 5px;
+  margin: 6px;
+  color: var(--color-snow);
+  align-self: center;
+}
+.activity-input {
+  margin: 3px;
+  padding-left: 3px;
+  border: 2px solid var(--color-snow);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--color-snow);
+}
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+}

@@ -1,27 +1,44 @@
-export default function Form({ onAddActivity }) {
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-      name: formData.get("name"),
-      isForGoodWeather: formData.get("checkbox") === "on",
+import React, { useState } from "react";
+
+const Form = ({ onAddActivity }) => {
+  const [name, setName] = useState("");
+  const [isForGoodWeather, setIsForGoodWeather] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newActivity = {
+      id: Math.random().toString(36).substr(2, 9),
+      name,
+      isForGoodWeather,
     };
-    event.target.reset();
-    event.target.elements.name.focus();
-    onAddActivity(data);
-  }
+    onAddActivity(newActivity);
+    setName("");
+    setIsForGoodWeather(false);
+    document.getElementById("activity-name").focus();
+  };
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <h3>Add a new activity:</h3>
-        <label htmlFor="name">Name:</label>
-        <input type="text" name="name" id="activity-name" />
-        <label htmlFor="checkbox">Good-weather activity?</label>
-        <input type="checkbox" name="checkbox" id="checkbox" />
-        <button type="submit" name="submit" id="submit">
-          SUBMIT
-        </button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <h2>Add Activity</h2>
+      <div>
+        <label htmlFor="activity-name">Activity Name:</label>
+        <input
+          type="text"
+          id="activity-name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="good-weather-activity">Good Weather Activity:</label>
+        <input
+          type="checkbox"
+          id="good-weather-activity"
+          checked={isForGoodWeather}
+          onChange={(e) => setIsForGoodWeather(e.target.checked)}
+        />
+      </div>
+      <button type="submit">Add</button>
+    </form>
   );
-}
+};
+
+export default Form;

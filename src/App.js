@@ -62,6 +62,7 @@ function App() {
   // returning the HTML with all props passed
   return (
     <div className={backgroundClass}>
+      <h1>Weather App</h1>
       <Weather weather={weather} />
       <FilterActivities
         isGoodWeather={isGoodWeather}
@@ -70,6 +71,7 @@ function App() {
       <Activities
         activities={filteredActivities}
         onDeleteActivity={handleDeleteActivity}
+        isGoodWeather={isGoodWeather}
       />
       <Form onAddActivity={handleAddActivity} />
     </div>

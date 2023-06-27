@@ -6,6 +6,15 @@
 h2 {
   margin-left: 7px;
 }
+
+h3 {
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
 ul {
   margin-left: -15px;
 }
